@@ -18,10 +18,10 @@ class CryptoMarkets(MycroftSkill):
                 data = response.json()
 
                 for key, coinObject in data[0].items():
-                    if coinObject.id == coin or coinObject.symbol == coin or coinObject.name == coin:
-                        self.log.info('Matched a coin object: ' + str(coinObject.name))
-                        price = coinObject.current_price
-                        self.speak_dialog('price.crypto', {'coin': coinObject.name, 'price': price})
+                    if coinObject['id'] == coin or coinObject['symbol'] == coin or coinObject['name'] == coin:
+                        self.log.info('Matched a coin object: ' + str(coinObject['name']))
+                        price = coinObject['current_price']
+                        self.speak_dialog('price.crypto', {'coin': coinObject['name'], 'price': price})
             else:
                 self.log.info('API Response Failed...')
                 self.speak_dialog('missing.crypto')
