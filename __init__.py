@@ -14,14 +14,11 @@ class CryptoMarkets(MycroftSkill):
     def handle_price_crypto(self, message):
         coin = message.data.get('coin')
         utterance = message.data.get('utterance')
-        callback_data = message.data.get('callback_data')
-
-        self.log.info('COIN: ' + str(coin))
-        self.log.info('UTTERANCE: ' + str(utterance))
-        self.log.info('CALLBACK DATA' + str(callback_data))
 
         if coin is not None:
             self.log.info('Identified the coin request. Calling the CoinGecko API for ' + str(coin))
+            coin = self.handle_synonyms(coin)
+
             response = requests.get(self.url)
             if response.ok:
                 self.log.info('API Response was OK...')
@@ -44,6 +41,16 @@ class CryptoMarkets(MycroftSkill):
         else:
             self.log.info('Could not determine the requested coin...')
             self.speak_dialog('missing.crypto')
+
+    def handle_synonyms(coin):
+        synonyms = {
+            "etherum": "ethereum"
+        }
+
+        if synonyms[coin] is not None:
+            return synonyms[coin]
+        else:
+            return coin
 
 def create_skill():
     return CryptoMarkets()
