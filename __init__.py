@@ -18,7 +18,7 @@ class CryptoMarkets(MycroftSkill):
         if coin is not None:
             self.log.info('Identified the coin request. Calling the CoinGecko API for ' + str(coin))
             coin = self.handle_synonyms(coin)
-            self.log('Special Characters: ' + str('Crypto.com Coin').lower())
+            self.log.info('Special Characters: ' + str('Crypto.com Coin').lower())
 
             response = requests.get(self.url)
             if response.ok:
