@@ -17,10 +17,9 @@ class CryptoMarkets(MycroftSkill):
                 self.log.info('API Response was OK...')
                 data = response.json()
 
-                for key, coinObject in data.items():
+                for item in data[0].items():
 
-                    self.log.info('KEY: ' + str(key))
-                    self.log.info('COIN OBJECT: ' + str(coinObject))
+                    self.log.info('ITEM: ' + str(item))
 
                     if coinObject['id'] == coin or coinObject['symbol'] == coin or coinObject['name'] == coin:
                         self.log.info('Matched a coin object: ' + str(coinObject['name']))
