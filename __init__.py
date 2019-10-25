@@ -44,7 +44,8 @@ class CryptoMarkets(MycroftSkill):
 
     def handle_synonyms(self, coin):
         synonyms = {
-            "etherum": "ethereum"
+            "etherum": "ethereum",
+            "ether": "ethereum"
         }
 
         if synonyms[coin] is not None:
