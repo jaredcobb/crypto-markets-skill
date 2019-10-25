@@ -12,10 +12,11 @@ class CryptoMarkets(MycroftSkill):
         coin = message.data.get('coin')
         if coin is not None:
             self.log.info('Identified the coin request. Calling the CoinGecko API for ' + str(coin))
-            apiResponse = requests.get(self.url)
-            if apiResponse.ok:
+            response = requests.get(self.url)
+            if response.ok:
                 self.log.info('API Response was OK...')
-                apiData = json.loads(apiResponse.content)
+                data = response.json()
+                self.log.info('API Data: ' + str(data))
                 self.speak_dialog('price.crypto', {'coin': coin})
             else:
                 self.log.info('API Response Failed...')
