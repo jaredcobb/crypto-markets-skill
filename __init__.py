@@ -44,6 +44,8 @@ class CryptoMarkets(MycroftSkill):
 
     def handle_synonyms(self, coin):
         synonyms = {
+            "lightcoin": "litecoin",
+            "light": "litecoin",
             "etherum": "ethereum",
             "ether": "ethereum"
         }
