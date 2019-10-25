@@ -31,6 +31,9 @@ class CryptoMarkets(MycroftSkill):
                         match = True
                         self.log.info('Matched a coin object: ' + str(item['name']))
                         self.speak_dialog('price.crypto', {'coin': item['name'], 'price': item['current_price']})
+                        self.speak('would you like to hear more?')
+                        utterance = message.data.get('utterance')
+                        self.log.info('More Utterance' + str(utterance))
 
                 if match == False:
                     self.speak_dialog('missing.crypto')
