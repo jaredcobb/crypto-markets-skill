@@ -18,6 +18,10 @@ class CryptoMarkets(MycroftSkill):
                 data = response.json()
 
                 for key, coinObject in data[0].items():
+
+                    self.log.info('KEY: ' + str(key))
+                    self.log.info('COIN OBJECT: ' + str(coinObject))
+
                     if coinObject['id'] == coin or coinObject['symbol'] == coin or coinObject['name'] == coin:
                         self.log.info('Matched a coin object: ' + str(coinObject['name']))
                         price = coinObject['current_price']
