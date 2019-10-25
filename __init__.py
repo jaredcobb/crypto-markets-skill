@@ -17,7 +17,7 @@ class CryptoMarkets(MycroftSkill):
                 self.log.info('API Response was OK...')
                 data = response.json()
 
-                for key, coinObject in data[0].items():
+                for key, coinObject in data.items():
 
                     self.log.info('KEY: ' + str(key))
                     self.log.info('COIN OBJECT: ' + str(coinObject))
