@@ -45,14 +45,16 @@ class CryptoMarkets(MycroftSkill):
     def handle_synonyms(self, coin):
         synonyms = {
             "binance": "binancecoin",
+            "ether": "ethereum",
+            "etherum": "ethereum",
+            "ether classic": "ethereum-classic",
+            "etherum classic": "ethereum-classic",
+            "leocoin": "leo-token",
             "lightcoin": "litecoin",
             "light coin": "litecoin",
             "lite coin": "litecoin",
             "light": "litecoin",
-            "etherum classic": "ethereum-classic",
-            "ether classic": "ethereum-classic",
-            "etherum": "ethereum",
-            "ether": "ethereum"
+            "okbaby": "okb",
         }
 
         if coin in synonyms:
