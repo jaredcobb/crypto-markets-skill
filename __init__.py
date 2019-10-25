@@ -23,12 +23,18 @@ class CryptoMarkets(MycroftSkill):
             if response.ok:
                 self.log.info('API Response was OK...')
                 data = response.json()
+                match = false
 
                 for item in data:
 
                     if item['id'] == coin or item['symbol'] == coin or item['name'] == coin:
+                        match = true
                         self.log.info('Matched a coin object: ' + str(item['name']))
                         self.speak_dialog('price.crypto', {'coin': item['name'], 'price': item['current_price']})
+
+                if match == false:
+                    self.speak_dialog('missing.crypto')
+
             else:
                 self.log.info('API Response Failed...')
                 self.speak_dialog('missing.crypto')
