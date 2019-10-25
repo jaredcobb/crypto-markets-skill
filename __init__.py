@@ -30,11 +30,13 @@ class CryptoMarkets(MycroftSkill):
                     if item['id'] == coin or item['symbol'] == coin or item['name'].lower() == coin:
                         match = True
                         self.log.info('Matched a coin object: ' + str(item['name']))
-                        self.speak_dialog('price.crypto', {'coin': item['name'], 'price': item['current_price']})
-                        followUp = self.speak('would you like to hear more?', True)
-                        utterance = message.data.get('utterance')
-                        self.log.info('More Utterance' + str(utterance))
-                        self.log.info('Follow up' + str(followUp))
+
+                        if item['price_change_24h'] > 0:
+                            price_change_direction = 'up'
+                        else:
+                            price_change_direction = 'down'
+
+                        self.speak_dialog('price.crypto', {'coin': item['name'], 'price': item['current_price'], 'price_change_direction': price_change_direction, 'price_change': item['price_change_24h']})
 
                 if match == False:
                     self.speak_dialog('missing.crypto')

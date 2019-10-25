@@ -1,1 +1,2 @@
-{coin} is at ${price}
+{coin} is at ${price}.
+that's {price_change_direction} by ${price_change_24h}.
