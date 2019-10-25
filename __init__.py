@@ -42,7 +42,7 @@ class CryptoMarkets(MycroftSkill):
             self.log.info('Could not determine the requested coin...')
             self.speak_dialog('missing.crypto')
 
-    def handle_synonyms(coin):
+    def handle_synonyms(self, coin):
         synonyms = {
             "etherum": "ethereum"
         }
