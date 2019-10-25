@@ -19,12 +19,9 @@ class CryptoMarkets(MycroftSkill):
 
                 for item in data:
 
-                    self.log.info('ITEM SYNTAX 2: ' + str(item['id']))
-
-                    if coinObject['id'] == coin or coinObject['symbol'] == coin or coinObject['name'] == coin:
-                        self.log.info('Matched a coin object: ' + str(coinObject['name']))
-                        price = coinObject['current_price']
-                        self.speak_dialog('price.crypto', {'coin': coinObject['name'], 'price': price})
+                    if item['id'] == coin or item['symbol'] == coin or item['name'] == coin:
+                        self.log.info('Matched a coin object: ' + str(item['name']))
+                        self.speak_dialog('price.crypto', {'coin': item['name'], 'price': item['current_price']})
             else:
                 self.log.info('API Response Failed...')
                 self.speak_dialog('missing.crypto')
