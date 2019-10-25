@@ -27,7 +27,7 @@ class CryptoMarkets(MycroftSkill):
 
                 for item in data:
 
-                    if item['id'] == coin or item['symbol'] == coin or item['name'] == coin:
+                    if item['id'] == coin or item['symbol'] == coin or item['name'].lower() == coin:
                         match = True
                         self.log.info('Matched a coin object: ' + str(item['name']))
                         self.speak_dialog('price.crypto', {'coin': item['name'], 'price': item['current_price']})
@@ -45,6 +45,8 @@ class CryptoMarkets(MycroftSkill):
     def handle_synonyms(self, coin):
         synonyms = {
             "lightcoin": "litecoin",
+            "light coin": "litecoin",
+            "lite coin": "litecoin",
             "light": "litecoin",
             "etherum": "ethereum",
             "ether": "ethereum"
