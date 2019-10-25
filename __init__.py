@@ -36,7 +36,7 @@ class CryptoMarkets(MycroftSkill):
                         else:
                             price_change_direction = 'down'
 
-                        self.speak_dialog('price.crypto', {'coin': item['name'], 'price': item['current_price'], 'price_change_direction': price_change_direction, 'price_change': item['price_change_24h']})
+                        self.speak_dialog('price.crypto', {'coin': item['name'], 'price': item['current_price'], 'price_change_direction': price_change_direction, 'price_change_24h': item['price_change_24h']})
 
                 if match == False:
                     self.speak_dialog('missing.crypto')
