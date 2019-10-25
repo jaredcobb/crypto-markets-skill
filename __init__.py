@@ -49,6 +49,8 @@ class CryptoMarkets(MycroftSkill):
             "light coin": "litecoin",
             "lite coin": "litecoin",
             "light": "litecoin",
+            "etherum classic": "ethereum-classic",
+            "ether classic": "ethereum-classic",
             "etherum": "ethereum",
             "ether": "ethereum"
         }
