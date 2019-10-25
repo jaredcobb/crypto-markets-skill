@@ -10,6 +10,13 @@ class CryptoMarkets(MycroftSkill):
     @intent_file_handler('price.crypto.intent')
     def handle_price_crypto(self, message):
         coin = message.data.get('coin')
+        utterance = message.data.get('utterance')
+        callback_data = message.data.get('callback_data')
+
+        self.log.info('COIN: ' + str(coin))
+        self.log.info('UTTERANCE: ' + str(utterance))
+        self.log.info('CALLBACK DATA' + str(callback_data))
+
         if coin is not None:
             self.log.info('Identified the coin request. Calling the CoinGecko API for ' + str(coin))
             response = requests.get(self.url)
