@@ -19,7 +19,8 @@ class CryptoMarkets(MycroftSkill):
 
                 for item in data:
 
-                    self.log.info('ITEM: ' + str(item))
+                    self.log.info('ITEM SYNTAX 1: ' + str(item.id))
+                    self.log.info('ITEM SYNTAX 2: ' + str(item['id']))
 
                     if coinObject['id'] == coin or coinObject['symbol'] == coin or coinObject['name'] == coin:
                         self.log.info('Matched a coin object: ' + str(coinObject['name']))
