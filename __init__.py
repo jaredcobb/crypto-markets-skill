@@ -48,7 +48,7 @@ class CryptoMarkets(MycroftSkill):
             "ether": "ethereum"
         }
 
-        if synonyms[coin] is not None:
+        if coin in synonyms:
             return synonyms[coin]
         else:
             return coin
